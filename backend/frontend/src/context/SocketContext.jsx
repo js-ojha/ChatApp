@@ -26,7 +26,7 @@ const SocketSubscriber = ({ children }) => {
         setSocket(null);
       }
     } else {
-      const socket = io("http://localhost:5002", {
+      const socket = io("https://chatapp-5y51.onrender.com", {
         query: {
           userId: meData._id,
         },

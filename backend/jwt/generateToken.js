@@ -7,9 +7,11 @@ export const generateToken = async (res, userId) => {
   await res.cookie("authToken", token, {
     httpOnly: true, // protect against xss
     secure: process.env.NODE_ENV !== "development",
-    sameSite: "lax", // protect against csrf
+    sameSite: "strict", // protect against csrf
     maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
     domain:
-      process.env.NODE_ENV === "production" ? ".example.com" : "localhost",
+      process.env.NODE_ENV === "production"
+        ? "https://chatapp-5y51.onrender.com"
+        : "localhost",
   });
 };
